@@ -5,10 +5,17 @@ const int led[] = {14,15,18,23,24,25,8,7};
 #include <string.h>
 #include "EasyPIO.h"
 
+// constantes
 #define PASSWORD "12345"
 #define MAX_INTENTOS 3
 
+// funciones externas
 extern void autof(void);
+extern void choque(void);
+extern void leds_con_espacio(void);
+extern void par_impar_alternado(void);
+
+// funciones auxiliares
 void mostrarMenu(void);
 void disp_binary(int i);
 int leds(int num);
@@ -48,29 +55,41 @@ int main() {
 
         switch (opcion) {
             case 1:
-                printf("Opción 1 seleccionada.\n");
+                printf("Ejecutando Auto Fantástico. . .\n");
                 autof();
                 break;
             case 2:
-                printf("Opción 2 seleccionada.\n");
+                printf("Ejecutando Choque. . .\n");
+                choque();
                 break;
             case 3:
+                printf("Ejecutando Par - Impar. . .\n");
+                leds_con_espacio();
+                break;
+            case 4:
+                printf("Ejecutando Luces de Navidad. . .\n");
+                par_impar_alternado();
+                break;
+            case 5:
                 printf("Saliendo del programa.\n");
                 break;
             default:
-                printf("Opción inválida. Inténtelo nuevamente.\n");
+                printf("Opción inválida. Intente nuevamente.\n");
         }
-    } while (opcion != 3);
-    
+
+    } while (opcion != 5);
+
     return 0;
 }
 
 // Definiciones de funciones
 void mostrarMenu() {
     printf("Seleccione una opción:\n");
-    printf("1. Opción autof\n");
-    printf("2. Opción 2\n");
-    printf("3. Salir\n");
+    printf("1. Opción auto_fantástico\n");
+    printf("2. Opción choque\n");
+    printf("3. Opción par_impar\n");
+    printf("4. Opción franco\n");
+    printf("5. Salir\n");
     printf("Ingrese su opción: \n");
 }
 
