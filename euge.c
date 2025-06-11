@@ -4,7 +4,7 @@
 #define GPIO_BASE   0x20200000
 #define GPIO_DIR    0x04
 #define GPIO_OUT    0x0C
-#define DELAY_COUNT 1000000 esto para que sirve 
+#define DELAY_COUNT 1000000
 
 void delay_routine(void) {
     volatile unsigned int i;
@@ -12,9 +12,9 @@ void delay_routine(void) {
 }
 
 void leds_con_espacio(void) {
-    int i;
+    unsigned int i;
     for (i = 0; i <= 5; i++) {
-        int i1 = (1 << i) | (1 << (i + 2));
+        unsigned int i1 = (1 << i) | (1 << (i + 2));
         leds(i1);       // Enciende dos LEDs con uno apagado entre medio
         delay_routine();
     }

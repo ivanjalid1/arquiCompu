@@ -4,12 +4,12 @@
 #define DELAY_COUNT 1000000
 
 void delay_routine(void) {
-    volatile int i;
+    volatile unsigned int i;
     for (i = 0; i < DELAY_COUNT; i++);
 }
 
 void autof(void) {
-    int i;
+    unsigned int i;
 
     // Encendido de izquierda a derecha (bit 0 a bit 7)
     for (i = 0; i < 8; i++) {

@@ -3,7 +3,7 @@
 #define GPIO_BASE   0x20200000
 #define GPIO_DIR    0x04
 #define GPIO_OUT    0x0C
-#define DELAY_COUNT 1000000 esto para que sirve 
+#define DELAY_COUNT 1000000
 
 void delay_routine(void) {
     volatile unsigned int i;
@@ -11,26 +11,26 @@ void delay_routine(void) {
 }
 
 void franco_par (void){
-    int i;
+    unsigned int i;
     for (i = 0; i <= 7; i += 2) {
-        int i1 = (1 << i)
-        leds(i1)
-        delay_routine()
+        unsigned int i1 = (1 << i);
+        leds(i1);
+        delay_routine();
     }
 }
 
 void franco_impar (void){
-    int i;
+    unsigned int i;
     for (i = 1; i <= 7; i += 2 ) {
-        int i1 = (1 << i)
-        leds(i1)
-        delay_routine()
+        unsigned int i1 = (1 << i);
+        leds(i1);
+        delay_routine();
     }
 }
 
 void par_impar_alternado(void) {
-    int repeticiones = 7;  
-    int i;
+    unsigned int repeticiones = 7;  
+    unsigned int i;
 
     for (i = 0; i < repeticiones; i++) {
         franco_par();      
@@ -40,6 +40,5 @@ void par_impar_alternado(void) {
         delay_routine();   
     }
 
-    leds(0x00)
-
+    leds(0x00);
 }
